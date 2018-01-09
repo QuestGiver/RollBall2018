@@ -9,7 +9,7 @@ public class BallControler : MonoBehaviour
 
     public float HitPoints;
     public float Stamina;
-
+    public bool grounded = true;
     public bool clone = false;
     Rigidbody rb;
     public float speed;
@@ -24,25 +24,54 @@ public class BallControler : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         HitPoints = 10;
-        Stamina = 100;
+        Stamina = 5;
+        grounded = true;
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            grounded = false;
+        }
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float verticle = Input.GetAxis("Vertical");
+        Vector3 move = new Vector3(horizontal, 0, verticle);
+        Vector3 vel = move * speed * Time.deltaTime;
+
 
         if (Input.GetMouseButtonDown(1) && Stamina > 0)
         {
-            rb.AddForce((new Vector3(horizontal, 0, verticle)) * (speed * 2) * Time.deltaTime);
+            //rb.MovePosition((new Vector3(horizontal, 0, verticle)) * (speed * 2) * Time.deltaTime);
+            rb.velocity = vel * (speed*2) * Time.deltaTime;
             Stamina -= Time.deltaTime;
         }
         else
         {
-            rb.AddForce((new Vector3(horizontal,0,verticle)) * speed * Time.deltaTime);
+            //rb.MovePosition((new Vector3(horizontal,0,verticle)) * speed * Time.deltaTime);
+            rb.velocity = vel * speed * Time.deltaTime;
+            if (Stamina < 5)
+            {
+                Stamina += Time.deltaTime;
+            }
         }
 
+        if (grounded == false)
+        {
+            rb.MovePosition((new Vector3(0, -8, 0)) * speed * Time.deltaTime);
+        }
+        
+
+        //if (rb.velocity.magnitude > 500)
+        //{
+        //    speed = 0;
+        //    Debug.Log("OIIII");
+        //}
 
         //for (int i = 0; i < 1; i++)
         //{
