@@ -36,7 +36,7 @@ public class PickUp : MonoBehaviour
             var playerController = other.GetComponent<BallControler>();
             if (playerController != null)
             {
-                playerController.score += scoredAdded;
+                BallControler.score += scoredAdded;
                 Destroy(gameObject);
             }
         }
