@@ -1787,6 +1787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoredAdded: 1
   rotationSpeed: 0
+  lerpTime: 0
 --- !u!114 &114857238113120154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1800,6 +1801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoredAdded: 1
   rotationSpeed: 0
+  lerpTime: 0
 --- !u!114 &114936529786736008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1812,6 +1814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickup: {fileID: 1819654640888158, guid: cc02acfa9e2ecda4d97beb5d469216ce, type: 2}
+  hazard: {fileID: 0}
   range: 50
   spawnInterval: 1
 --- !u!114 &114975209796310008
@@ -1825,11 +1828,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f5b894cc414ff42af5dfbce75e5134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 114934288785056448, guid: 3a7687d9fe870214482cc247d39455ec,
-    type: 2}
+  ballPrefab: {fileID: 0}
+  HitPoints: 0
+  Stamina: 0
+  grounded: 1
   clone: 0
   speed: 500
-  score: 0
+  desiredScale: 0
+  checkPontLoc: {x: 0, y: 0, z: 0}
+  timer: 0
 --- !u!135 &135529157333668896
 SphereCollider:
   m_ObjectHideFlags: 1

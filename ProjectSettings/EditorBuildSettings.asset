@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/MainMenu.unity
+    guid: b476c533ab5635148918818cb8cd9066
+  - enabled: 1
+    path: Assets/garbo.unity
+    guid: 1ede90f21cdfc7a458dd8c8990c15c73
